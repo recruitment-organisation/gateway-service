@@ -26,6 +26,8 @@ public class SecurityConfig {
                         .pathMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .pathMatchers("/actuator/**", "/actuator/info").permitAll()
                         .pathMatchers("/auth-service/auth/**").permitAll()
+                        .pathMatchers(HttpMethod.POST, "/candidate-service/candidate/create").permitAll()
+                        .pathMatchers(HttpMethod.GET, "/candidate-service/candidate/get/**").permitAll()
                         .anyExchange().authenticated()
                 )
                 .oauth2ResourceServer(oauth2 ->
